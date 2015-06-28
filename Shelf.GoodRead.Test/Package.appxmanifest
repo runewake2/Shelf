@@ -1,21 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-
 <Package
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
   xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
   IgnorableNamespaces="uap mp">
 
-  <Identity
-    Name="1136227c-ac29-4374-b71b-4f3c6a0ad268"
-    Publisher="CN=runew_000"
-    Version="1.0.0.0" />
+  <Identity Name="da9972d0-7257-4e6e-a264-7017a5d93e33"
+            Publisher="CN=runew_000"
+            Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="1136227c-ac29-4374-b71b-4f3c6a0ad268" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="da9972d0-7257-4e6e-a264-7017a5d93e33" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>Shelf</DisplayName>
-    <PublisherDisplayName>Samuel Wronski</PublisherDisplayName>
+    <DisplayName>Shelf.GoodRead.Test</DisplayName>
+    <PublisherDisplayName>runew_000</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -24,25 +22,23 @@
   </Dependencies>
 
   <Resources>
-    <Resource Language="x-generate"/>
+    <Resource Language="x-generate" />
   </Resources>
-
   <Applications>
-    <Application Id="App"
-      Executable="$targetnametoken$.exe"
-      EntryPoint="Shelf.App">
+    <Application Id="vstest.executionengine.universal.App"
+        Executable="vstest.executionengine.appcontainer.uap.exe"
+        EntryPoint="Microsoft.VisualStudio.TestPlatform.TestExecutor.AppContainer.App">
       <uap:VisualElements
-        DisplayName="Shelf"
+        DisplayName="Shelf.GoodRead.Test"
         Square150x150Logo="Assets\Logo.png"
         Square44x44Logo="Assets\SmallLogo.png"
-        Description="Shelf"
+        Description="Shelf.GoodRead.Test"
         BackgroundColor="#464646">
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
     </Application>
   </Applications>
-
   <Capabilities>
-    <Capability Name="internetClient" />
+    <Capability Name="internetClientServer" />
   </Capabilities>
 </Package>
