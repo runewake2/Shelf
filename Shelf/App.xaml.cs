@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Shelf.GoodRead;
+using Shelf.Models.Navigation;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -24,6 +26,11 @@ namespace Shelf
     /// </summary>
     sealed partial class App : Application
     {
+        /// <summary>
+        /// Api access key for accessing and using the GoodReads API.
+        /// </summary>
+        public static ServiceKey ApiAccessKey;
+
         /// <summary>
         /// Allows tracking page views, exceptions and other telemetry through the Microsoft Application Insights service.
         /// </summary>
@@ -64,6 +71,7 @@ namespace Shelf
             {
                 // Create a Frame to act as the navigation context and navigate to the first page
                 rootFrame = new Frame();
+                NavigationHandler.RegisterFrame(rootFrame);
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
@@ -81,10 +89,13 @@ namespace Shelf
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter
-                rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                rootFrame.Navigate(typeof(UserEntryPage), e.Arguments);
             }
             // Ensure the current window is active
             Window.Current.Activate();
+
+            // Now that everything is setup, begin an async task to initialize the Good Reads API
+            ServiceInitializer.BeginInitialization();
         }
 
         /// <summary>

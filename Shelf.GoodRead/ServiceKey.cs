@@ -14,6 +14,7 @@ namespace Shelf.GoodRead
 
         private bool _authenticated;
         private string _oauthToken;
+        private DateTime _oauthExpiration;
 
         public string Key
         {
@@ -47,6 +48,14 @@ namespace Shelf.GoodRead
             }
         }
 
+        public DateTime OAuthTokenExpiration
+        {
+            get
+            {
+                return _oauthExpiration;
+            }
+        }
+
         private ServiceKey(string key, string secret)
         {
             _key = key;
@@ -55,10 +64,11 @@ namespace Shelf.GoodRead
             _oauthToken = String.Empty;
         }
 
-        public void AuthorizeUser(string token)
+        public void AuthorizeUser(string token, DateTime expiration)
         {
             _authenticated = true;
             _oauthToken = token;
+            _oauthExpiration = expiration;
         }
 
         public void RevokeAuthorization()

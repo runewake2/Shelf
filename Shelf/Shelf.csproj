@@ -94,10 +94,24 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <Compile Include="Commands\NavigationCommand.cs" />
+    <Compile Include="Models\Navigation\NavigationHandler.cs" />
+    <Compile Include="Models\Service\ServiceInitializer.cs" />
+    <Compile Include="ViewModels\AbstractViewModel.cs" />
+    <Compile Include="ViewModels\UserEntry\UserEntryViewModel.cs" />
+    <Compile Include="Views\Controls\BookFlat.xaml.cs">
+      <DependentUpon>BookFlat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\BookProgressControl.xaml.cs">
+      <DependentUpon>BookProgressControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\UserEntryPage.xaml.cs">
+      <DependentUpon>UserEntryPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Pages\UserLoginOAuth.xaml.cs">
+      <DependentUpon>UserLoginOAuth.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -105,6 +119,7 @@
     </AppxManifest>
     <None Include="ApplicationInsights.config" />
     <None Include="packages.config" />
+    <PRIResource Include="Resources.resw" />
     <None Include="Shelf_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -120,9 +135,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainPage.xaml">
+    <Page Include="Views\Controls\BookFlat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\BookProgressControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\UserEntryPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\UserLoginOAuth.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -147,6 +174,13 @@
       <Private>True</Private>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Shelf.GoodRead\Shelf.GoodRead.csproj">
+      <Project>{d17896e0-e812-448b-b858-24f2471897c7}</Project>
+      <Name>Shelf.GoodRead</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
