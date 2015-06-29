@@ -5,9 +5,16 @@
     xmlns:local="using:Shelf.Views.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Shelf.Views.Controls"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <WebView x:Name="web"/>
+        <WebView x:Name="web"
+                 NavigationCompleted="WebLoaded"/>
+        
+        <controls:BookProgressControl
+            x:Name="progress"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"/>
     </Grid>
 </Page>

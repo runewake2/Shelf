@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shelf.GoodRead.OAuth;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,18 @@ namespace Shelf.Views.Pages
     /// </summary>
     public sealed partial class UserLoginOAuth : Page
     {
+        private Uri _uri;
+
         public UserLoginOAuth()
         {
             this.InitializeComponent();
+            _uri = OAuthRequestBuilder.CreateRequest(App.ApiAccessKey, "http://www.worldofzero.com", true);
+            web.Navigate(_uri);
+        }
+
+        private void WebLoaded(WebView sender, WebViewNavigationCompletedEventArgs args)
+        {
+            progress.Visibility = Visibility.Collapsed;
         }
     }
 }

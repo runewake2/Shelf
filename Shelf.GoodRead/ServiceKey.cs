@@ -16,6 +16,14 @@ namespace Shelf.GoodRead
         private string _oauthToken;
         private DateTime _oauthExpiration;
 
+        internal string ServiceEndpoint
+        {
+            get
+            {
+                return _serviceEndpoint;
+            }
+        }
+
         public string Key
         {
             get
